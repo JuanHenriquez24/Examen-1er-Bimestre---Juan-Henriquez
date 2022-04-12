@@ -31,23 +31,24 @@ El programa debe devolver el total de la compra de los tres productos mostrando 
     public int cantprod1;
     public int cantprod2;
     public int cantprod3;
+    int precioAdescontar1 = 0;
+    int precioAdescontar2 = 0;
+    int precioAdescontar3 = 0;
     // Use this for initialization
     void Start () {
-        int precioAdescontar1 = 0;
-        int precioAdescontar2 = 0;
-        int precioAdescontar3 = 0;
+        
         // Solo se le aplica el descuento 1 vez a cada tipo de producto
         if (cantprod1 > 3)
         {
-            precioAdescontar1 = precio1 * (20 / 100);
+            precioAdescontar1 = precio1 * (1/5);
         }
         if (cantprod2 > 3)
         {
-            precioAdescontar2 = precio2 * (20 / 100);
+            precioAdescontar2 = precio2 * (1/5);
         }
         if (cantprod3 > 3)
         {
-            precioAdescontar3 = precio3 * (20 / 100);
+            precioAdescontar3 = precio3 * (1/5);
         }
         int valortot1 = (precio1 * cantprod1);
         int valortot2 = (precio2 * cantprod2);
@@ -58,12 +59,12 @@ El programa debe devolver el total de la compra de los tres productos mostrando 
         int preciototal = valortot1 + valortot2 + valortot3;
         int precioTdesc = preciodescontado1 + preciodescontado2 + preciodescontado3;
         if (preciodescontado1 != 0 && preciodescontado2 != 0 && preciodescontado3 != 0) {
-        precioTdesc = (preciototal - (precio1 + precio2 + precio3)) + (preciodescontado1 + preciodescontado2 + preciodescontado3);
+        precioTdesc = preciototal  - (preciodescontado1 + preciodescontado2 + preciodescontado3);
         }
         else
         {
         }
-        int descuentosTot = precioAdescontar1 + precioAdescontar2 + precioAdescontar3;
+        int descuentosTot = preciodescontado1 + preciodescontado2 + preciodescontado3;
 
         if (precio1 >= 1 && precio2 >= 1 && precio3 >= 1 && cantprod1 >= 1 && cantprod2 >= 1 && cantprod3 >= 1)
         {
